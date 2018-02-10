@@ -96,12 +96,7 @@ const tileClock = function (p) {
       colorIndex = (colorIndex + 1) % numColors
     }
 
-    // Draw current hours and minutes
-    let date = new Date()
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    drawTime(hours, minutes)
-
+    p.textFont(textFont)
     p.frameRate(1)
   }
 
