@@ -83,20 +83,30 @@ const tileClock = function (p) {
   const tileColors = ['#2ecc71','#16a085','#3498db','#8e44ad','#c0392b','#d35400','#f39c12','#f1c40f']
   const numColors = tileColors.length
 
-  let colorIndex = 0
-  let tileToColor = []
+  let tileToIndex = []
+  let fontLoaded = false
+
+  p.preload = function() {
+    WebFont.load({
+      google: {
+        families: ['Walter Turncoat']
+      },
+      fontloading: function(familyName, fvd) {
+        fontLoaded = true
+      }
+    })
+  }
 
   p.setup = function() {
     p.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
     // Initialize the tiles
     for (let shape of tileShapes) {
-      tileToColor.push(tileColors[colorIndex])
-      drawTile(shape, tileColors[colorIndex])
-      colorIndex = (colorIndex + 1) % numColors
+      let colorIndex = Math.floor(Math.random() * numColors)
+      tileToIndex.push(colorIndex)
+      drawTile(shape, colorIndex)
     }
 
-    p.textFont(textFont)
     p.frameRate(1)
   }
 
@@ -107,21 +117,29 @@ const tileClock = function (p) {
     let minutes = date.getMinutes()
     let seconds = date.getSeconds()
 
+    // Generate new color for this second
+    let newColorIndex = Math.floor(Math.random() * numColors)
+    if (newColorIndex == tileToIndex[seconds]) {
+      tileToIndex[seconds] = (tileToIndex[seconds] + 1) % numColors
+    } else {
+      tileToIndex[seconds] = newColorIndex
+    }
+
     // Draw tile for current seconds
-    tileToColor[seconds] = tileColors[colorIndex]
-    colorIndex = (colorIndex + 1) % numColors
     for (let i = 0; i < tileShapes.length; i++) {
-      drawTile(tileShapes[i], tileToColor[i])
+      drawTile(tileShapes[i], tileToIndex[i])
     }
 
     // Draw current hours and minutes
-    drawTime(hours, minutes)
+    if (fontLoaded) {
+      drawTime(hours, minutes)
+    }
   }
 
-  function drawTile(s, color) {
+  function drawTile(s, colorIndex) {
     p.strokeWeight(1)
     p.stroke(255)
-    p.fill(color)
+    p.fill(tileColors[colorIndex])
     p.quad(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7])
   }
 
