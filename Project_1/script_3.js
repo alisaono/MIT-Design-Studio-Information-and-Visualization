@@ -137,7 +137,7 @@ const tileClock = function (p) {
   }
 
   function drawTile(s, colorIndex) {
-    p.strokeWeight(1)
+    p.strokeWeight(2.5)
     p.stroke(255)
     p.fill(tileColors[colorIndex])
     p.quad(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7])
