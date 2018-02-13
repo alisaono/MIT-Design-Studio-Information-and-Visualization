@@ -113,4 +113,4 @@ const simpleClock = function (p) {
   }
 }
 
-new p5(simpleClock, 'plot2')
+new p5(simpleClock, 'wheels')

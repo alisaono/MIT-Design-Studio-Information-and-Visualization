@@ -4,25 +4,70 @@
     <meta charset="UTF-8">
     <title>Visualizing time - Project 1</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row" id="header">
         <h1 class="col-md-12">Visualizing Time</h1>
+        <p class="col-md-12">MIT 4.032 Project 1 by Alisa Ono</p>
     </div>
-    <div class="row">
-        <h2 class="col-md-12">Sketch 1</h2>
-        <div id="plot1"></div>
-    </div>
-    <div class="row">
-        <h2 class="col-md-12">Sketch 2</h2>
-        <div id="plot2">
+    <div class="row sketches" id="rough-sketches">
+        <h2 class="col-md-12">Twenty Ideas</h2>
+        <div>
+          <img src="./sketches/sketch_1.JPG">
+          <img src="./sketches/sketch_2.JPG">
+          <img src="./sketches/sketch_3.JPG">
+          <img src="./sketches/sketch_4.JPG">
         </div>
     </div>
-    <div class="row">
-        <h2 class="col-md-12">Sketch 3</h2>
-        <div id="plot3"></div>
+    <div class="row sketches">
+        <div class="col-md-6">
+          <h2>Power Source</h2>
+          <p>
+            This clock was inspired by the battery status indicator on Mac menu bar.
+            Instead of displaying the current time, this clock displays
+            the remaining time of the day.
+          </p>
+          <p>
+            Three batteries correspond to hours (top), minutes (middle),
+            and seconds (bottom). You can see them deplete throughout the day.
+          </p>
+        </div>
+        <div class="col-md-6" id="power_source"></div>
+    </div>
+    <div class="row sketches">
+        <div class="col-md-6" id="wheels"></div>
+        <div class="col-md-6">
+          <h2>Wheels</h2>
+          <p>
+            Normally a clock consists of stationary numbers and moving lines.
+            This minimalistic clock was meant to turn the table around: Fixed
+            line and spinning numbers.
+          </p>
+          <p>
+            Three wheels of numbers correspond to hours (top-left), minutes (center),
+            and seconds (bottom-right). The line strikes through the current time.
+          </p>
+        </div>
+    </div>
+    <div class="row sketches">
+        <div class="col-md-6">
+          <h2>Coloring Book</h2>
+          <p>
+            I created this clock to try out something playful and bright.
+            Although this clock displays the current time in a conventional
+            digital format, handwritten numbers and colorful tiles add
+            some playfulness.
+          </p>
+          <p>
+            Tile colors are randomly picked from an eight-color palette.
+            There are 60 tiles, corresponding to the 60 seconds in each minute;
+            one tile is re-colored every second.
+          </p>
+        </div>
+        <div class="col-md-6" id="coloring_book"></div>
     </div>
 </div>
 

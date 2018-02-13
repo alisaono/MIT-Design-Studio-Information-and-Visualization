@@ -103,4 +103,4 @@ const batteryClock = function (p) {
   }
 }
 
-new p5(batteryClock, 'plot1')
+new p5(batteryClock, 'power_source')

@@ -160,4 +160,4 @@ const tileClock = function (p) {
   }
 }
 
-new p5(tileClock, 'plot3')
+new p5(tileClock, 'coloring_book')
