@@ -1,8 +1,8 @@
 body {
-    padding: 50px 120px;
-    font-family: 'Raleway', sans-serif;
-    color: #ffffff;
-    background-color: #1f1f2b;
+  padding: 50px 80px;
+  font-family: 'Raleway', sans-serif;
+  color: #ffffff;
+  background-color: #1f1f2b;
 }
 
 #header {
@@ -20,8 +20,9 @@ body {
   border-top: 1px solid #ffffff;
 }
 
-.sketches > h2 {
-  margin-bottom: 20px;
+.sketches > div {
+  display: inline-block;
+  margin: auto;
 }
 
 #rough-sketches {
@@ -33,12 +34,28 @@ body {
   max-height: 380px;
 }
 
-#plot1, #plot2, #plot3 {
-    width: 414px;
-    height: 736px;
-    border: 1px solid #353538;
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom:40px;
+.clock {
+  display: inline-block;
+  min-width: 414px;
+  min-height: 736px;
+}
+
+@media all and (max-width: 1110px)  {
+  body {
+    padding: 20px;
+  }
+  #header h1 {
+    font-size: 3rem;
+  }
+  .sketches > div {
+    width: 100%;
+    display: block;
+  }
+  .desc {
+    margin: auto;
+  }
+  .clock {
+    text-align: center;
+    margin: 20px 0;
+  }
 }
