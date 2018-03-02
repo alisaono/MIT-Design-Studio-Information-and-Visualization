@@ -2,6 +2,16 @@ body {
     padding: 50px;
 }
 
+.sketches {
+  margin-top: 30px;
+  padding-top: 30px;
+  /* border-top: 1px solid #ffffff; */
+}
+
+#rough-sketches img {
+  width: auto;
+  max-height: 380px;
+}
 
 #mobile1,#mobile2 {
     width: 414px;
