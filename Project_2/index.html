@@ -8,6 +8,10 @@
 </head>
 <body>
 <div class="container">
+    <div class="row" id="header">
+        <h1 class="col-md-12">Visualizing Weather</h1>
+        <p class="col-md-12">MIT 4.032 Project 2 by Alisa Ono</p>
+    </div>
     <div class="row sketches" id="rough-sketches">
         <h1 class="col-md-12">Sketches</h1>
         <div class="col-md-12">
@@ -16,12 +20,20 @@
           <img src="./images/sketch_3.JPG">
         </div>
     </div>
-    <div class="row sketches">
+    <div class="row sketches" id="mockups">
         <h1 class="col-md-12">Mockups</h1>
-        <img src="./images/mockups.png">
+        <div class="col-md-12"><img src="./images/mockups.png"></div>
     </div>
-    <div class="row">
+    <div class="row sketches">
         <h1 class="col-md-12">Literal Visualization</h1>
+        <p>
+          This weather dashboard has two line charts:
+          Top shows the temperature every 3 hours for the next 24 hours.
+          Bottom shows the daily high and low temperatures for the week.
+          Background colors represent how certain ranges of temperatures feels.
+          For example, really cold temperatures (~40 degrees) is shaded blue;
+          chilly temperatures (40~60 degrees) is shaded light-blue.
+        </p>
         <div id="mobile1">
           <h1>BOSTON</h1>
           <h2>Today</h2>
@@ -31,8 +43,15 @@
         </div>
     </div>
     <br/>
-    <div class="row">
+    <div class="row sketches">
         <h1 class="col-md-12">Abstract Visualization</h1>
+        <p>
+          This weather dashboard compares today's temperature in Boston
+          to monthly average temperatures in four other cities.
+          Each city shows the month whose average temperature most cloesly
+          matches Boston's temperature today or displays 'NEVER' if a city never gets
+          as cold or hot as Boston today.
+        </p>
         <div id="mobile2">
           <div class="map"></div>
           <div class="header">
