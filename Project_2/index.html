@@ -21,19 +21,46 @@
         <img src="./images/mockups.png">
     </div>
     <div class="row">
-        <h1 class="col-md-12">First Dashboard</h1>
+        <h1 class="col-md-12">Literal Visualization</h1>
         <div id="mobile1">
+          <h1>BOSTON</h1>
+          <h2>Today</h2>
+          <div class="hourly"></div>
+          <h2>This Week</h2>
+          <div class="daily"></div>
         </div>
     </div>
     <br/>
     <div class="row">
-        <h1 class="col-md-12">Second Dashboard</h1>
+        <h1 class="col-md-12">Abstract Visualization</h1>
         <div id="mobile2">
+          <div class="map"></div>
+          <div class="header">
+            <div class="first-row">
+              <h1 class="first-col">weather in</h1>
+              <h1 class="second-col">Boston</h1>
+              <h1 class="third-col">high</h1>
+              <h1 class="forth-col" id="boston-high"></h1>
+            </div>
+            <div class="second-row">
+              <h1 class="first-col"></h1>
+              <h1 class="second-col">TODAY</h1>
+              <h1 class="third-col">low</h1>
+              <h1 class="forth-col" id="boston-low"></h1>
+            </div>
+            <div class="third-row">
+              <h1>is typically experienced by...</h1>
+            </div>
+          </div>
         </div>
     </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="script.js"></script>
+<script src="data.js"></script>
+<script src="literal.js"></script>
+<script src="abstract.js"></script>
+<script src="loader.js"></script>
 </body>
 </html>
