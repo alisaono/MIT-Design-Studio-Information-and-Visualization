@@ -132,7 +132,7 @@ function drawSingleLineChart(plot, weatherData, xScale, gridArray, xLabels) {
           .tickValues(xLabels)
           .tickSize(0, 0)
           .tickPadding(cellSize / 2 - 3)
-          .tickFormat(d3.timeFormat("%-H%p")))
+          .tickFormat(d3.timeFormat("%-I%p")))
 
   // Remove line and ticks for X-axis
   plot.select(".x-axis .domain").remove()
