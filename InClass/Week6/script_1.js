@@ -11,6 +11,7 @@ var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a 
     .attr('height', height + margin.t + margin.b);
 
 // function to draw the map
+var mapPath = d3.geoPath();
 
 // queue data files, parse them and use them
 var queue = d3.queue()
@@ -19,13 +20,28 @@ var queue = d3.queue()
     .await(dataloaded);
 
 function dataloaded (err,data,map){
+    var popById = {}
+    data.forEach(function(d) {
+      popById[d.Id] = +d.total
+    })
 
     // get max and min values of data
+    let populations = data.map(function(d){ return d.total })
+    let max = Math.max(...populations)
+    let min = Math.min(...populations)
+    let color = d3.scaleLinear().domain([min,max])
+      .range(["#FFFFFF", "#000000"])
 
-    // scale Color for the map
-
-    // Bind the data to the SVG and create one path per GeoJSON feature
-
+    plot1.append("g")
+    	.attr("class", "counties")
+    	.selectAll("path")
+    	.data(topojson.feature(map, map.objects.states).features)
+    	.enter().append("path")
+    	.attr("d", mapPath)
+    	.style("fill", function(d) {
+    		return color(popById[`0400000US${d.id}`])
+    	})
+    	.style("stroke", "black")
 }
 
 
@@ -33,7 +49,10 @@ function dataloaded (err,data,map){
 // total: +d["Total; Estimate; Population 3 years and over enrolled in school"],
 //     percentage: +d["Percent; Estimate; Population 3 years and over enrolled in school"]
 
-
 function parseData(d){
-
+  return {
+    Id : d.Id,
+    state : d.state,
+    total: +d["Total; Estimate; Population 3 years and over enrolled in school"]
+  }
 }
