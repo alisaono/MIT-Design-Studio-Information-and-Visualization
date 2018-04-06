@@ -13,10 +13,13 @@ var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a 
 // function to draw the map
 var mapPath = d3.geoPath();
 
+var populationPerState = d3.map();
+
 // queue data files, parse them and use them
 var queue = d3.queue()
     .defer(d3.csv, "data/data.csv", parseData)
     .defer(d3.json, "data/us_map.json") //downloaded from https://d3js.org/us-10m.v1.json
+    .defer(d3.csv, "data/population.csv", parsePopulation) //downloaded from https://d3js.org/us-10m.v1.json
     .await(dataloaded);
 
 function dataloaded (err,data,map){
@@ -24,6 +27,10 @@ function dataloaded (err,data,map){
     data.forEach(function(d) {
       popById[d.Id] = +d.total
     })
+
+    console.log(data)
+    console.log(map)
+    console.log(populationPerState)
 
     // get max and min values of data
     let populations = data.map(function(d){ return d.total })
@@ -44,7 +51,15 @@ function dataloaded (err,data,map){
     	.style("stroke", "black")
 }
 
+            data.forEach(function(e){
+                if (e.id === mapID){
+                    color = colorScale(e.total/totalPopulation)
+                }
+            });
+            return color
+        })
 
+}
 
 // total: +d["Total; Estimate; Population 3 years and over enrolled in school"],
 //     percentage: +d["Percent; Estimate; Population 3 years and over enrolled in school"]
